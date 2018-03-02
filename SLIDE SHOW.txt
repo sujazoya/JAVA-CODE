@@ -1,0 +1,141 @@
+                             MAIN ACTIVITY JAV
+
+package com.sapp.slideshow;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ViewFlipper;
+
+public class MainActivity extends AppCompatActivity {
+    Animation Fade_in,Fade_out;
+    ViewFlipper viewFlipper;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        viewFlipper = (ViewFlipper) this.findViewById(R.id.viewFlipper);
+
+        Fade_in = AnimationUtils . loadAnimation(this,
+                android.R.anim.fade_in);
+
+        Fade_out = AnimationUtils . loadAnimation(this,
+                android.R.anim.fade_out);
+        viewFlipper.setInAnimation(Fade_in);
+        viewFlipper.setInAnimation(Fade_out);
+
+        viewFlipper.setAutoStart(true);
+        viewFlipper.setFlipInterval(5000);
+        viewFlipper.startFlipping();
+    }
+}
+
+
+                                      MANI ACTIVITY XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sapp.slideshow.MainActivity">
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ViewFlipper
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/viewFlipper"
+            >
+
+            <ImageView
+                android:id="@+id/wall10"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall10"
+                />
+
+            <ImageView
+                android:id="@+id/wall11"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall1"
+                />
+
+            <ImageView
+                android:id="@+id/wall12"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall12"
+                />
+
+            <ImageView
+                android:id="@+id/wall13"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall13"
+                />
+
+            <ImageView
+                android:id="@+id/wall4"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall4"
+                />
+
+            <ImageView
+                android:id="@+id/wall5"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall5"
+                />
+
+            <ImageView
+                android:id="@+id/wall7"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall7"
+                />
+
+            <ImageView
+                android:id="@+id/wall9"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall9"
+                />
+        </ViewFlipper>
+
+    </LinearLayout>
+
+
+</RelativeLayout> 
+
+                                                 anim/ fade_in.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <alpha
+        android:duration="2000"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:interpolator="@android:anim/accelarate_interpolator"/>
+
+
+</set>
+

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#262938</color>
+    <color name="colorPrimaryDark">#181A24</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTransparentWhite">#CCCCCC</color>
+</resources>
+
+
+
+//main Activity
+
+
+package com.sapp.drawableapp;
+
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+
+public class MainActivity extends AppCompatActivity {
+    private ViewPager mSlideViewPaper;
+    private LinearLayout mDotLayout;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mSlideViewPaper = (ViewPager)findViewById(R.id.slideViewPagerr);
+        mDotLayout = (LinearLayout)findViewById(R.id.dotsLayout);
+    }
+}
+activity mainxml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/maain_background2"
+    tools:context="com.sapp.drawableapp.MainActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/slideViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="82dp"
+            android:orientation="horizontal"></LinearLayout>
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>
+
+
+slide_adapter.java
+
+import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+
+import com.sapp.drawableapp.R;
+
+/**
+ * Created by Suja on 02-Feb-18.
+ */
+
+public class slide_adapter extends PagerAdapter {
+
+    private Context context;
+    LayoutInflater layoutInflater;
+
+    public slide_adapter (Context context) {
+
+        this.context = context;
+    }
+
+    public int[] slide_images ={
+            R.drawable.eat_icon,
+            R.drawable.sleep_icon,
+            R.drawable.code_icon,
+
+    };
+    public String[] slide_headings = {
+            "EAT",
+            "SLEEP",
+            "CODE"
+
+    };
+
+    public String[] slide_desc = {
+            "lorem dapsum seep amet elit,gdftdfgh ldhf wek  ehruiehkb "+
+                    "alique",
+            "lorem dapsum seep amet elit,gdftdfgh ldhf wek  ehruiehkb "+
+                    "alique",
+            "lorem dapsum seep amet elit,gdftdfgh ldhf wek  ehruiehkb "+
+                    "alique"
+
+    };
+
+    @Override
+    public int getCount() {
+        return 0;
+    }
+
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        return false;
+    }
+}
+

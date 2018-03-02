@@ -1,0 +1,342 @@
+                    main activity xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4f4f4f"
+    tools:context="com.sapp.saveshare.MainActivity">
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="91dp"
+        android:onClick="onClick"
+        android:text="VIEW" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="110dp"
+        android:layout_height="220dp"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/button"
+        android:src="@drawable/bg_1"
+        android:onClick="send"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="110dp"
+        android:layout_height="220dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:src="@drawable/bg_3"
+        android:onClick="send"/>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="110dp"
+        android:layout_height="220dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:src="@drawable/bg_g"
+        android:onClick="send"/>
+</RelativeLayout>
+
+
+                                    main activity,java
+
+
+package com.sapp.saveshare;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void onClick(View view) {
+        Intent intent=new Intent(MainActivity.this,ViewActivity.class);
+        startActivity(intent);
+    }
+
+    public void send(View view) {
+        switch (view.getId()) {
+
+            case R.id.imageView2:
+                Intent i = new Intent(MainActivity.this, ViewActivity.class);
+                i.putExtra("resId", R.drawable.bg_1);
+                startActivity(i);
+                break;
+
+            case R.id.imageView3:
+
+                Intent i1 = new Intent(MainActivity.this, ViewActivity.class);
+                i1.putExtra("resId", R.drawable.bg_3);
+                startActivity(i1);
+
+                break;
+
+            case R.id.imageView4:
+
+                Intent i2 = new Intent(MainActivity.this, ViewActivity.class);
+                i2.putExtra("resId", R.drawable.bg_g);
+                startActivity(i2);
+        }
+
+
+    }
+}
+
+
+                                       View activity.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sapp.saveshare.ViewActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="200dp"
+        />
+    <LinearLayout
+        android:id="@+id/lLayout"
+        android:layout_below="@id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_Wall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="141dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:text="Wallpaperr" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_Wall"
+        android:layout_centerHorizontal="true"
+        android:text="Save" />
+
+    <Button
+        android:id="@+id/btn_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_save"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_toEndOf="@+id/btn_save"
+        android:layout_toRightOf="@+id/btn_save"
+        android:text="Share" />
+
+</RelativeLayout>
+
+
+                                         viewactivity.java
+
+package com.sapp.saveshare;
+
+import android.app.AlertDialog;
+import android.app.WallpaperManager;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.net.Uri;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
+import java.io.DataInput;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class ViewActivity extends AppCompatActivity implements View.OnClickListener{
+    private ImageView imageView;
+    private Button btn_wall;
+    private Button btn_save;
+    private Button btn_share;
+    private AlertDialog dialog;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_view);
+
+        imageView = (ImageView)findViewById(R.id.imageView);
+        Bundle bundle=getIntent().getExtras();
+        if (bundle!=null)
+        {
+            int resid =bundle.getInt("resId");
+            imageView.setImageResource(resid);
+        }
+
+        init();
+        setupView();
+    }
+    public void setupView(){
+        btn_wall.setOnClickListener(this);
+        btn_save.setOnClickListener(this);
+        btn_share.setOnClickListener(this);
+    }
+    public void init(){
+
+        btn_wall = (Button)findViewById(R.id.btn_Wall);
+        btn_save = (Button)findViewById(R.id.btn_save);
+        btn_share = (Button)findViewById(R.id.btn_share);
+
+    }
+    public static Bitmap viewToBitmap (View view, int width,int heirht){
+        Bitmap bitmap =Bitmap.createBitmap(width,heirht,Bitmap.Config.ARGB_8888);
+        Canvas canvas=new Canvas(bitmap);
+        view.draw(canvas);
+        return bitmap;
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id) {
+            case R.id.btn_Wall: {
+                startWall();
+                break;
+            }
+            case R.id.btn_save: {
+                dialog = new AlertDialog.Builder(this).create();
+                dialog.setTitle("Save Image");
+                dialog.setMessage(" are you sure to save image:?");
+                dialog.setButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        startSave();
+                    }
+                });
+                dialog.setButton2("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+                break;
+            }
+            case R.id.btn_share: {
+                startShare();
+                break;
+            }
+
+        }
+    }
+    public void startShare(){
+        Bitmap bitmap=viewToBitmap(imageView,imageView.getWidth(),imageView.getHeight());
+        Intent sareIntent=new Intent(Intent.ACTION_SEND);
+        sareIntent.setType("image/jpg");
+        ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+        File file=new File(Environment.getExternalStorageDirectory()+File.separator+"ImageDemo.jpg");
+        try {
+            file.createNewFile();
+            FileOutputStream fileOutputStream=new FileOutputStream(file);
+            fileOutputStream.write(byteArrayOutputStream.toByteArray());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        sareIntent.putExtra(Intent.EXTRA_STREAM,Uri.parse("file:///sdcard/ImageDemo.jpg"));
+        startActivity(Intent.createChooser(sareIntent,"Share Image"));
+
+    }
+    public void startSave(){
+        FileOutputStream fileOutputStream=null;
+        File file=getDisc();
+        if (!file.exists() && !file.mkdirs()){
+            Toast.makeText(this, "can`t create directory to save image", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyymmsshhmmss");
+        String date=simpleDateFormat.format(new Date());
+        String name="img"+date+".jpg";
+        String file_name=file.getAbsolutePath()+"/"+name;
+        File new_file=new File(file_name);
+        try {
+            fileOutputStream=new FileOutputStream(new_file);
+            Bitmap bitmap=viewToBitmap(imageView,imageView.getWidth(),imageView.getHeight());
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,fileOutputStream);
+            Toast.makeText(this, "Save Image Succes", Toast.LENGTH_SHORT).show();
+            fileOutputStream.flush();
+            fileOutputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+       refrehGalery(new_file);
+
+    }
+    public void refrehGalery(File file){
+        Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        intent.setData(Uri.fromFile(file));
+        sendBroadcast(intent);
+    }
+
+    private File getDisc(){
+        File file= Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
+        return new File(file,"Image Demo");
+
+    }
+    public void startWall(){
+        WallpaperManager wallpaperManager=WallpaperManager.getInstance(getApplicationContext());
+        try {
+            wallpaperManager.setBitmap(viewToBitmap(imageView,imageView.getWidth(),imageView.getHeight()));
+            Toast.makeText(this,"Succes",Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+

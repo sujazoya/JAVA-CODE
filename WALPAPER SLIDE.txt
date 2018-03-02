@@ -1,0 +1,408 @@
+package com.sapp.wallpapergreat;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ViewFlipper;
+
+public class SlideActivity extends AppCompatActivity {
+    Animation Fade_in, Fade_out;
+    ViewFlipper viewFlipper;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_slide);
+
+        viewFlipper = (ViewFlipper) this.findViewById(R.id.viewFlipper);
+
+        Fade_in = AnimationUtils.loadAnimation(this,
+                android.R.anim.fade_in);
+
+        Fade_out = AnimationUtils.loadAnimation(this,
+                android.R.anim.fade_out);
+        viewFlipper.setInAnimation(Fade_in);
+        viewFlipper.setInAnimation(Fade_out);
+
+        viewFlipper.setAutoStart(true);
+        viewFlipper.setFlipInterval(4000);
+        viewFlipper.startFlipping();
+    }
+
+    public void goToViewAcivity(View view) {
+        switch (view.getId()) {
+
+            case R.id.bg_2:
+                Intent intent1 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent1.putExtra("resid", R.drawable.bg_2);
+                startActivity(intent1);
+                break;
+
+            case R.id.bg_3:
+                Intent intent2 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent2.putExtra("resid", R.drawable.bg_3);
+                startActivity(intent2);
+                break;
+            case R.id.bg_4:
+                Intent intent3 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent3.putExtra("resid", R.drawable.bg_4);
+                startActivity(intent3);
+                break;
+            case R.id.bg_5:
+                Intent intent4 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent4.putExtra("resid", R.drawable.bg_5);
+                startActivity(intent4);
+                break;
+            case R.id.bg_7:
+                Intent intent6 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent6.putExtra("resid", R.drawable.bg_7);
+                startActivity(intent6);
+                break;
+            case R.id.bg_8:
+                Intent intent7 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent7.putExtra("resid", R.drawable.bg_8);
+                startActivity(intent7);
+
+            case R.id.bg_9:
+                Intent intent8 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent8.putExtra("resid", R.drawable.bg_9);
+                startActivity(intent8);
+                break;
+            case R.id.bg_10:
+                Intent intent10 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent10.putExtra("resid", R.drawable.bg_10);
+                startActivity(intent10);
+                break;
+            case R.id.bg_11:
+                Intent intent11 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent11.putExtra("resid", R.drawable.bg_11);
+                startActivity(intent11);
+                break;
+            case R.id.bg_12:
+                Intent intent5 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent5.putExtra("resid", R.drawable.bg_12);
+                startActivity(intent5);
+                break;
+            case R.id.bg_13:
+                Intent intent12 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent12.putExtra("resid", R.drawable.bg_13);
+                startActivity(intent12);
+                break;
+            case R.id.bg_14:
+                Intent intent13 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent13.putExtra("resid", R.drawable.bg_14);
+                startActivity(intent13);
+
+                break;
+
+            case R.id.bg_15:
+                Intent intent14 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent14.putExtra("resid", R.drawable.bg_15);
+                startActivity(intent14);
+                break;
+            case R.id.bg_16:
+                Intent intent15 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent15.putExtra("resid", R.drawable.bg_16);
+                startActivity(intent15);
+                break;
+            case R.id.bg_17:
+                Intent intent16 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent16.putExtra("resid", R.drawable.bg_5);
+                startActivity(intent16);
+                break;
+            case R.id.bg_6:
+                Intent intent17 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent17.putExtra("resid", R.drawable.bg_17);
+                startActivity(intent17);
+                break;
+            case R.id.bg_18:
+                Intent intent18 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent18.putExtra("resid", R.drawable.bg_18);
+                startActivity(intent18);
+                break;
+            case R.id.bg_19:
+                Intent intent21 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent21.putExtra("resid", R.drawable.bg_19);
+                startActivity(intent21);
+                break;
+
+            case R.id.bg_20:
+                Intent intent19 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent19.putExtra("resid", R.drawable.bg_20);
+                startActivity(intent19);
+                break;
+            case R.id.bg_21:
+                Intent intent20 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent20.putExtra("resid", R.drawable.bg_21);
+                startActivity(intent20);
+                break;
+            case R.id.bg_22:
+                Intent intent22 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent22.putExtra("resid", R.drawable.bg_22);
+                startActivity(intent22);
+                break;
+            case R.id.bg_23:
+                Intent intent23 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent23.putExtra("resid", R.drawable.bg_23);
+                startActivity(intent23);
+                break;
+            case R.id.bg_24:
+                Intent intent24 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent24.putExtra("resid", R.drawable.bg_24);
+                startActivity(intent24);
+                break;
+            case R.id.bg_25:
+                Intent intent25 = new Intent(SlideActivity.this, ViewActivity.class);
+                intent25.putExtra("resid", R.drawable.bg_25);
+                startActivity(intent25);
+        }
+    }
+}
+
+
+
+
+
+ <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ViewFlipper
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/viewFlipper"
+            >
+
+            <ImageView
+                android:id="@+id/bg_2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_2"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_3"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_3"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_4"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_4"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_5"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_5"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_6"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_6"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_7"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_7"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_8"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_8"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_9"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_9"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_10"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_10"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_11"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_11"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_12"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_12"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_13"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_13"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_14"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_14"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_15"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_15"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_16"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_16"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+            <ImageView
+                android:id="@+id/bg_17"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_17"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_18"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_18"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_19"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_19"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_20"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_20"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_21"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_21"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_22"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_22"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_23"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_23"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/bg_24"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_24"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+            <ImageView
+                android:id="@+id/bg_25"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_25"
+                android:onClick="goToViewAcivity"
+                tools:ignore="OnClick" />
+
+
+
+
+
+        </ViewFlipper>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+
+
+
+
